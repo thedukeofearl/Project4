@@ -110,19 +110,19 @@ class MainPage(Handler):
         user_name = 'Anonymous Poster'
 
     # Create our posts html
-    posts_html = ''
-    for post in posts:
+    # posts_html = ''
+    # for post in posts:
 
-      # Check if the current signed in user matches with the author's identity from this particular
-      # post. Newline character '\n' tells the computer to print a newline when the browser is
-      # is rendering our HTML
-      if user and user.user_id() == post.author.identity:
-        posts_html += '<div><h3>(You) ' + post.author.name + '</h3>\n'
-      else:
-        posts_html += '<div><h3>' + post.author.name + '</h3>\n'
+    #   # Check if the current signed in user matches with the author's identity from this particular
+    #   # post. Newline character '\n' tells the computer to print a newline when the browser is
+    #   # is rendering our HTML
+    #   if user and user.user_id() == post.author.identity:
+    #     posts_html += '<div><h3>(You) ' + post.author.name + '</h3>\n'
+    #   else:
+    #     posts_html += '<div><h3>' + post.author.name + '</h3>\n'
 
-      posts_html += 'wrote:' + cgi.escape(post.content) + '</blockquote>\n'
-      posts_html += '</div>\n'
+    #   posts_html += 'wrote:' + cgi.escape(post.content) + '</blockquote>\n'
+    #   posts_html += '</div>\n'
 
     sign_query_params = urllib.urlencode({'wall_name': wall_name}) # wall_name was set above as ancestor key and in 'posts'
       # urllib.urlencode example: this is getting passed into the html template as 
@@ -133,7 +133,7 @@ class MainPage(Handler):
 
     # Write Out Page here
     self.render("main.html", sign_query_params = sign_query_params, wall_name = cgi.escape(wall_name), user_name=user_name,
-                  url = url, url_linktext = url_linktext, posts_html = posts_html)
+                  url = url, url_linktext = url_linktext, posts=posts)
 
 class ServerPage(Handler):
   """renders server.html notes on server page"""

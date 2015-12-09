@@ -32,7 +32,8 @@
   Logged in as: <strong>{{user_name}}</strong><br>
   <a href="{{url}}">{{url_linktext}}</a>
   <!-- user comments start here -->
-  {{posts_html | safe}}
   
+  {% block comments %}
+  {% endblock %}
 
 </body>

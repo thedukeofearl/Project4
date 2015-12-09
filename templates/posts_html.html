@@ -1,12 +1,15 @@
+{% extends "base.html" %}
 
-
+{% block comments %}
 
 {% for post in posts %}
     {% if user and user.user_id() == post.author.identity %}
         <div><h3>(You) {{post.author.name}}</h3>
-      else:
+     {% else %}
         <div><h3>{{post.author.name}}</h3>
     {% endif %}
+
+      wrote:{{post.content}} </blockquote>\n
+      </div>\n
 {% endfor %}
-      wrote:' + cgi.escape(post.content) + '</blockquote>\n'
-      posts_html += '</div>\n'
+{% endblock %}
