@@ -1,0 +1,13 @@
+  {% extends "base.html" %}
+  {% block content %}
+
+  <article>
+    <h2>The Importance of Validating Input: </h2>
+    <p>Your notes should acknowledge the importance of validating user input, especially the implications that validation has on site security and user experience.</p>
+
+    <p>Validating user input is essentail to maintaining site security and reliability of the website and ensure a satisfying user experience. Auto escaping regular expressions in user input will convert regular expressions to an equivalent string, so that when it is saved it is not rendered on the webpage as html. Without auto escaping user could accidently input HTML into our webpage and render a page that the developer did not intend. This could also open up holes in our web app to hackers. </p>
+    
+    <button>Like</button>
+  </article>
+  
+  {% endblock %}

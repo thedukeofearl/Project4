@@ -1,0 +1,16 @@
+  {% extends "base.html" %}
+  {% block content %}
+
+  <article>
+    <h2>Servers: </h2>
+    <p>Basics of how servers handle requests, process them, and deliver responses.</p>
+    <p> A server's purpose is to <b>resond</b> to HTTP <b>requests</b> sent by a browser. The server resonds with <b>static</b> reponses, such as images, or <b>dynamic</b> responses which render webpages on the fly using Web Applications such as Google App Engine (GAE). An <b>HTTP request</b> sent to the server is sent as a series of strings with a "request line" and "headers" (name-name:any value). Using appropriate headers is essential to becoming a good internet citizen. The HTTP request  can include <b>get</b> and <b>post</b> parameters that send data or user input to the server to either fetch information using "get" or  create/update data using "post" requests to update data (note on "post" vs. "put": post is idempotent while put is not, repeating the same put requests will create multiple new objects while repeating the same post request will not create new objects but update the instance). Get parameters are included in the url, have a maximum length, and can be cached while post parameters are in the body of the request, have no maximum length, and should not be chached. 
+
+    <p> Once a server recieves a request, it will process the request using a web application such as GAE. Everything needed to process the request is located in a web app folder on the server. The 2 main components that process the requests are a .yaml file and a single python file(main.py or main.app). the main.py file will include a class function "Handler" to process requests for each url. Essentailly, each url on the webpage will have a handler script that will run when a page is requested. The Handler will also take get and post parameters and pass them into various HTML templates to create webpages. The Handler can also make queries on databases, updated table entities, and use that data to generate dynamic webpages. </p>
+
+    <p> Finally, once the server processes the request using a web application, the server will send a HTTP response with a <b>status line</b>, headers, and the HTML to render the page (note: server information should not be incluced or should be changed to enhance security). The status line will include a numbered response indicating the result from the request processsing and repond with a 200 for document found, 302 for document located else where, 404 if there is an error in code, and a 500 if there was an error on the server side.</p>
+    
+    <button>Like</button>
+  </article>
+  
+  {% endblock %}
